@@ -1,0 +1,17 @@
+In terminal
+
+step1:
+adb -d shell run-as com.example.shuangke.emotiondetection ls /data/data/com.example.shuangke.emotiondetection/databases/
+
+output:Emotion.db
+       Emotion.db-journal
+
+step2:
+adb -d shell "run-as com.example.shuangke.emotiondetection cat /data/data/com.example.shuangke.emotiondetection/databases/Emotion.db > /sdcard/Emotion.db
+
+output:2017summer_research
+
+step3:
+adb pull /sdcard/Emotion.db
+
+Then useSQLite manger in FireFox to view db? view filepath It's inside of 2017summer_research folder, choose all files

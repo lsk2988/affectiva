@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.shuangke.emotiondetection.MainActivity"
+    android:orientation="vertical">
+    <include layout="@layout/app_bar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="20dp"
+                    app:srcCompat="@drawable/camera" />
+
+                <SurfaceView
+                    android:id="@+id/surfaceView"
+                    android:layout_width="325dp"
+                    android:layout_height="363dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center" />
+
+                <ImageView
+                    android:id="@+id/display"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/surfaceView"
+                    android:layout_alignTop="@+id/surfaceView"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="16dp"
+                    app:srcCompat="@android:drawable/ic_menu_slideshow" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:background="#434343"
+                    android:onClick="start"
+                    android:text="start"
+                    android:textColor="#ffffff" />
+
+                <Button
+                    android:id="@+id/stop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:background="#434343"
+                    android:onClick="stop"
+                    android:text="stop"
+                    android:textColor="#ffffff" />
+
+                <Button
+                    android:id="@+id/play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#434343"
+                    android:onClick="play"
+                    android:text="play"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:srcCompat="@drawable/data" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignTop="@+id/imageView3"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="15dp"
+                    android:text="smile："
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/smile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/textView5"
+                    android:layout_toEndOf="@+id/textView5"
+                    android:text="null"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/smile"
+                    android:layout_alignBottom="@+id/smile"
+                    android:layout_marginStart="66dp"
+                    android:layout_toEndOf="@+id/smile"
+                    android:text="joy："
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/joy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView7"
+                    android:layout_alignBottom="@+id/textView7"
+                    android:layout_toEndOf="@+id/textView7"
+                    android:text="null"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/textView5"
+                    android:layout_below="@+id/textView5"
+                    android:layout_marginTop="16dp"
+                    android:text="sadness: "
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/sadness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/textView10"
+                    android:layout_toEndOf="@+id/textView10"
+                    android:text="null"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/textView7"
+                    android:layout_alignTop="@+id/sadness"
+                    android:text="surprise: "
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/surprise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/textView12"
+                    android:layout_toEndOf="@+id/textView12"
+                    android:text="null"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/textView10"
+                    android:layout_below="@+id/textView10"
+                    android:layout_marginTop="17dp"
+                    android:text="anger:"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/anger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/textView14"
+                    android:layout_toEndOf="@+id/textView14"
+                    android:text="null"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/textView12"
+                    android:layout_alignTop="@+id/anger"
+                    android:text="contempt:"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/contempt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/textView16"
+                    android:layout_toEndOf="@+id/textView16"
+                    android:text="null"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/textView14"
+                    android:layout_below="@+id/textView14"
+                    android:layout_marginTop="13dp"
+                    android:text="disgust:"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/disgust"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView19"
+                    android:layout_alignBottom="@+id/textView19"
+                    android:layout_toEndOf="@+id/textView19"
+                    android:text="null"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/disgust"
+                    android:layout_alignBottom="@+id/disgust"
+                    android:layout_toStartOf="@+id/engagement"
+                    android:text="engagement:"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/engagement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/contempt"
+                    android:layout_alignTop="@+id/textView21"
+                    android:text="null"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/textView19"
+                    android:layout_below="@+id/textView19"
+                    android:layout_marginTop="10dp"
+                    android:text="fear:"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/fear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/textView24"
+                    android:layout_toEndOf="@+id/textView24"
+                    android:text="null"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/fear"
+                    android:layout_alignStart="@+id/textView16"
+                    android:text="valence:"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/valence"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/textView27"
+                    android:layout_toEndOf="@+id/textView27"
+                    android:text="null"
+                    android:textSize="18dp" />
+
+
+            </RelativeLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45px">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  Emoji"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Disapointed:  "
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/disappointed_emoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="null                "
+                        android:textSize="18sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Flushed:  "
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/flushed_emoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="null   "
+                        android:textSize="18sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView28"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kissing:  "
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/kissing_emoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="null"
+                        android:textSize="18sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Laughing:  "
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/laughing_emoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="null"
+                        android:textSize="18sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView32"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rage:"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/rage_emoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="null"
+                        android:textSize="18sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Relaxed:"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/relaxed_emoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="null"
+                        android:textSize="18sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView36"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Scream:"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/scream_emoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="null"
+                        android:textSize="18sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView34"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Smiley:"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/smiley_emoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="null"
+                        android:textSize="18sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView44"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Smirk:"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/smirk_emoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="null"
+                        android:textSize="18sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView42"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="StuckOutTongue:"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/stuckOutTongue_emoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="null"
+                        android:textSize="18sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView52"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SOT+Wink:"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/stuckOutTongueWinkingEye_emoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="null"
+                        android:textSize="18sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView50"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wink:"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/wink_emoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="null"
+                        android:textSize="18sp" />
+                </TableRow>
+            </TableLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>
